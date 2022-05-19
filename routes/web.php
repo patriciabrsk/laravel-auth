@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Route::middleware('auth')->get('/admin', 'Admin\HomeController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
+    // Insert routes for logged users
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('posts', 'PostController');
+});
