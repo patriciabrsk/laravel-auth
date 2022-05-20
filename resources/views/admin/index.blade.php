@@ -8,13 +8,13 @@
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
+                                <img src="{{ $post->img_url }}" class="img-fluid rounded-start" alt="{{ $post->title }}">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <a href="{{ route('admin.posts.show', $post)}}"></a>
-                                    <h5 class="card-title">C{{ $post->title }}</h5>
-                                    <h6 class="card-title">C{{ $post->title }}</h6>
+                                    <h5 class="card-title">{{ $post->title }}</h5>
+                                    <h6 class="card-text">{{ $post->author }}</h6>
                                     <p class="card-text">{{ $post->content }}</p>
                                     <p class="card-text">
                                         <small class="text-muted">{{ $post->created_at}}</small>
@@ -25,7 +25,11 @@
                     </div>
                 </div>
             @empty
-
+                <h5 class="card-title">There are no posts to show</h5>
+            @endforelse
+            <div class="col-12 py-5 d-flex justify-content-center">
+                {{ $posts->links() }}
+            </div>
         </div>
     </div>
 @endsection
