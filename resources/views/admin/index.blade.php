@@ -12,7 +12,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <a href="{{ route('admin.posts.show', $post)}}">
+                                    <a href="{{ route('admin.show', $post)}}">
                                         <h5 class="card-title">{{ $post->title }}</h5>
                                     </a>
                                     <h6 class="card-text">{{ $post->author }}</h6>
